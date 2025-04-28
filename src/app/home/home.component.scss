@@ -1,0 +1,14 @@
+/* carrossel-clientes.component.css */
+img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button.bg-indigo-700 {
+  background-color: #3E4095;
+  /* Cor dos indicadores ativos */
+}

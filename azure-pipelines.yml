@@ -1,0 +1,51 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: SonarQubePrepare@7
+  inputs:
+    SonarQube: 'Sonar-Cube'
+    scannerMode: 'cli'
+    configMode: 'manual'
+    cliProjectKey: 'Automate_projects_Brasilsync_-_Site_7a5718db-54e9-4d57-a3ac-f3d045861f34'
+    cliProjectName: 'Brasilsync - Site'
+    cliSources: '.'
+
+- task: SonarQubeAnalyze@7
+  inputs:
+    jdkversion: 'JAVA_HOME_17_X64'
+
+- task: SonarQubePublish@7
+  inputs:
+    pollingTimeoutSec: '300'
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'Registry'
+    repository: 'brasilsync/site'
+    command: 'build'
+    Dockerfile: '**/Dockerfile'
+    tags: |
+      latest
+      $(Build.BuildId)
+  displayName: 'Construir Imagem Docker'
+
+- task: Trivy@1
+  inputs:
+    version: 'latest'
+    image: 'registrybrasilsync.azurecr.io/brasilsync/site:$(Build.BuildId)'
+    severities: 'HIGH,CRITICAL'
+  displayName: 'Escanear Imagem com Trivy'
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'Registry'
+    repository: 'brasilsync/site'
+    command: 'push'
+    tags: |
+      latest
+      $(Build.BuildId)
+  displayName: 'Enviar Imagem para o Registro'
