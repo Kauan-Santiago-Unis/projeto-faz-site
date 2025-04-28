@@ -15,7 +15,7 @@ export class SobreComponent {
   constructor(private titleService: Title) { }
 
   ngOnInit() {
-    this.titleService.setTitle('Brasilsync - Sobre');
+    this.titleService.setTitle('É Big - Sobre');
   }
 
 }

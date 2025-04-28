@@ -3,42 +3,17 @@
     <!-- Logo -->
     <div class="text-2xl font-bold text-gray-800">
       <a href="#">
-        <img src="/images/svg_logo.svg" alt="LOGO" class="h-8">
+        <img src="/images/logo/logo_ebig.jpg" alt="LOGO" class="h-8">
       </a>
     </div>
 
     <div class="flex items-center space-x-6">
       <!-- Navegação Desktop -->
       <div class="hidden md:flex space-x-6 text-gray-700">
-        <a href="#">{{ 'NAVBAR.HOME' | translate }}</a>
-        <a href="/solucoes">{{ 'NAVBAR.SOLUTIONS' | translate }}</a>
-        <a href="/sobre">{{ 'NAVBAR.ABOUT' | translate }}</a>
-        <a href="/contato">{{ 'NAVBAR.CONTACT' | translate }}</a>
-      </div>
-
-      <!-- Seletor de Idioma -->
-      <div class="relative">
-        <button id="dropdownDefaultButton" class="flex items-center bg-gray-100 px-4 py-2 rounded-md hover:bg-gray-200"
-          (click)="toggleDropdown()" [attr.aria-expanded]="isDropdownVisible.toString()">
-          🌍 {{ 'NAVBAR.LANGUAGE' | translate }}
-          <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-            viewBox="0 0 10 6">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="m1 1 4 4 4-4" />
-          </svg>
-        </button>
-
-        <!-- Dropdown menu -->
-        <ng-template [ngIf]="isDropdownVisible">
-          <div id="dropdown" class="dropdown-content absolute right-0 mt-2 w-32 bg-white shadow-lg rounded-md">
-            <a href="javascript:void(0)" class="block px-4 py-2 hover:bg-gray-100"
-              (click)="changeLanguage('pt')">Português</a>
-            <a href="javascript:void(0)" class="block px-4 py-2 hover:bg-gray-100"
-              (click)="changeLanguage('en')">Inglês</a>
-            <a href="javascript:void(0)" class="block px-4 py-2 hover:bg-gray-100"
-              (click)="changeLanguage('es')">Espanhol</a>
-          </div>
-        </ng-template>
+        <a href="#">Início</a>
+        <a href="/solucoes">Serviços</a>
+        <a href="/sobre">Sobre</a>
+        <a href="/contato">Contato</a>
       </div>
 
       <!-- Menu Hamburguer -->
@@ -55,14 +30,10 @@
   <!-- Menu Mobile -->
   <div id="mobileMenu" [ngClass]="{'hidden': !isMobileMenuVisible, 'block': isMobileMenuVisible}"
     class="bg-white shadow-md">
-    <a href="#" class="block px-6 py-3 border-b hover:bg-gray-100" (click)="toggleMobileMenu()">{{ 'NAVBAR.HOME' |
-      translate }}</a>
-    <a href="/solucoes" class="block px-6 py-3 border-b hover:bg-gray-100" (click)="toggleMobileMenu()">{{
-      'NAVBAR.SOLUTIONS' | translate }}</a>
-    <a href="/sobre" class="block px-6 py-3 border-b hover:bg-gray-100" (click)="toggleMobileMenu()">{{ 'NAVBAR.ABOUT' |
-      translate }}</a>
-    <a href="/contato" class="block px-6 py-3 hover:bg-gray-100" (click)="toggleMobileMenu()">{{ 'NAVBAR.CONTACT' |
-      translate }}</a>
+    <a href="#" class="block px-6 py-3 border-b hover:bg-gray-100" (click)="toggleMobileMenu()">Início</a>
+    <a href="/solucoes" class="block px-6 py-3 border-b hover:bg-gray-100" (click)="toggleMobileMenu()">Serviços</a>
+    <a href="/sobre" class="block px-6 py-3 border-b hover:bg-gray-100" (click)="toggleMobileMenu()">Sobre</a>
+    <a href="/contato" class="block px-6 py-3 hover:bg-gray-100" (click)="toggleMobileMenu()">Contato</a>
   </div>
 </nav>
 

@@ -14,7 +14,7 @@ export class ContatoComponent {
   constructor(private titleService: Title) { }
 
   ngOnInit() {
-    this.titleService.setTitle('Brasilsync - Contato');
+    this.titleService.setTitle('É Big - Contato');
   }
 
 }
