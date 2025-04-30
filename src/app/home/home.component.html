@@ -1,204 +1,6 @@
 <app-navbar class="fixed top-0 left-0 w-full z-50"></app-navbar>
 
-<!-- Slider -->
-<!-- Slider -->
-<div class="relative w-full h-auto sm:h-[500px] overflow-hidden">
-  <!-- Imagens do Slider -->
-  <div class="flex transition-transform duration-1000 ease-in-out"
-    [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
-    <div *ngFor="let slide of slides" class="w-full flex-shrink-0 relative">
-      <img [src]="slide.image" class="w-full h-auto sm:h-[500px] object-cover" alt="Slide Image">
-
-      <!-- Texto e Botões Centralizados -->
-      <div class="absolute inset-0 flex flex-col items-center justify-center text-white bg-black bg-opacity-50 px-2">
-        <div class="text-center max-w-[90%]">
-          <h1 class="text-2xl sm:text-4xl font-bold mb-2 sm:mb-4">{{ slide.title }}</h1>
-          <p class="text-base sm:text-lg mb-4 sm:mb-6">{{ slide.description }}</p>
-          <div class="space-x-2 sm:space-x-4">
-            <!-- Botão com nome e link dinâmicos -->
-            <a [href]="slide.buttonLink">
-              <button class="bg-gray-700 hover:bg-gray-900 text-white font-bold py-2 px-3 sm:px-4 rounded">
-                {{ slide.buttonName }}
-              </button>
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-
-
-<div class="max-w-4xl mx-auto px-6 mt-8">
-  <h2 class="text-3xl font-bold text-[#3D3F94] text-center break-words whitespace-pre-line mb-4">
-    {{ 'HOME.TITLE' | translate }}
-  </h2>
-  <p class="mt-6 text-gray-700 text-lg text-center break-words whitespace-pre-line leading-relaxed"
-    [innerHTML]="translatedDescription">
-  </p>
-</div>
-
-
-
-
-
-
-<div class=" flex justify-center items-center mt-8">
-  <div class="bg-[#2E2A83] text-white p-6 max-w-5xl w-full text-center">
-    <!-- Tabs -->
-    <div class="flex justify-center border-b border-white pb-2 space-x-8">
-      <button (click)="activeTab = 'softwares'" [class.font-bold]="activeTab === 'softwares'"
-        [class.text-gray-300]="activeTab !== 'softwares'">SOFTWARES</button>
-      <button (click)="activeTab = 'automacao'" [class.font-bold]="activeTab === 'automacao'"
-        [class.text-gray-300]="activeTab !== 'automacao'">AUTOMAÇÃO</button>
-      <button (click)="activeTab = 'rfid'" [class.font-bold]="activeTab === 'rfid'"
-        [class.text-gray-300]="activeTab !== 'rfid'">RFID</button>
-    </div>
-
-    <!-- Seção Softwares -->
-    <div *ngIf="activeTab === 'softwares'" class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 text-left">
-      <!-- Primeiro conteúdo -->
-      <div class="flex flex-col space-y-4">
-        <!-- Título com caixa branca em volta -->
-        <div class="bg-white text-[#3e4095] px-4 py-2 inline-block font-bold text-lg w-full text-center">
-          WMS
-        </div>
-        <div class="mt-2 text-center">
-          {{ 'HOME.WMS' | translate }}
-        </div>
-        <div class="flex space-x-4 mt-4">
-          <div class="flex justify-center items-center w-1/2">
-            <img src="/images/img_softwares_wms.png" alt="Imagem do sistema" class="w-32 h-32">
-          </div>
-          <div class="w-1/2 text-sm space-y-1">
-            <ul>
-              <li>- {{ 'HOME.CONTRATOS' | translate }}</li>
-              <li>- {{ 'HOME.FINANCEIRO' | translate }}</li>
-              <li>- {{ 'HOME.CLASSIFICACAO' | translate }}</li>
-              <li>- {{ 'HOME.ORDENS_DE_SERVICO' | translate }}</li>
-              <li>- {{ 'HOME.NOTAS_FISCAIS' | translate }}</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Segundo conteúdo -->
-      <div class="flex flex-col space-y-4">
-        <div class="bg-white text-[#3e4095] px-4 py-2 inline-block font-bold text-lg w-full text-center">
-          SAAS
-        </div>
-        <div class="mt-2 text-center">
-          {{ 'HOME.SISTEMA_GESTAO_CAFE' | translate }}
-        </div>
-        <div class="flex space-x-4 mt-4">
-          <div class="flex justify-center items-center w-1/2">
-            <img src="/images/img_softwares_saas.png" alt="Imagem do sistema" class="w-32 h-32">
-          </div>
-          <div class="w-1/2 text-sm space-y-1">
-            <ul>
-              <li>- {{ 'HOME.GESTAO_ESTOQUE' | translate }}</li>
-              <li>- {{ 'HOME.GESTAO_OFERTAS' | translate }}</li>
-              <li>- {{ 'HOME.LIVRO_CAIXA' | translate }}</li>
-              <li>- {{ 'HOME.MODULO_FINANCEIRO' | translate }}</li>
-              <li>- {{ 'HOME.CONTAS_BANCARIAS' | translate }}</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Terceiro conteúdo -->
-      <div class="flex flex-col space-y-4">
-        <div class="bg-white text-[#3e4095] px-4 py-2 inline-block font-bold text-lg w-full text-center">
-          MOBILE
-        </div>
-        <div class="mt-2 text-center">
-          {{ 'HOME.APLICATIVO_COOPERATIVAS' | translate }}
-        </div>
-        <div class="flex space-x-4 mt-4">
-          <div class="flex justify-center items-center w-1/2">
-            <img src="/images/img_softwares_mobile.png" alt="Imagem do sistema" class="w-32 h-32">
-          </div>
-          <div class="w-1/2 text-sm space-y-1">
-            <ul>
-              <li>- {{ 'HOME.CONSULTA_ESTOQUE' | translate }}</li>
-              <li>- {{ 'HOME.PREVISAO_SAFRA' | translate }}</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- Seção Automação -->
-    <div *ngIf="activeTab === 'automacao'"
-      class="mt-6 text-left bg-[#2E2A83] p-6 flex flex-col md:flex-row items-center">
-      <!-- Div esquerda com textos -->
-      <div class="w-full md:w-[65%] pr-6 mb-6 md:mb-0">
-        <h2 class="bg-white text-[#3e4095] px-4 py-2 inline-block font-bold text-lg w-full">
-          {{ 'HOME.AUTOMACAO_MAQUINARIO_REBENEFICIAMENTO' | translate }}
-        </h2>
-        <p class="mt-4">
-          {{ 'HOME.AUTOMACAO_MAQUINARIO_DESCRICAO' | translate }}
-        </p>
-        <p class="mt-2">
-          {{ 'HOME.ACOMPANHAR_RELATORIOS' | translate }}
-        </p>
-
-        <ul class="mt-2 text-sm space-y-1">
-          <li>{{ 'HOME.SISTEMA_SUPERVISORIO' | translate }}</li>
-          <li>{{ 'HOME.SISTEMA_WEB' | translate }}</li>
-        </ul>
-      </div>
-
-      <div class="w-full md:w-[35%] flex justify-center md:justify-end">
-        <img src="/images/img_softwares_autom.png" alt="Automação" class="max-w-[300px] md:max-w-[300px] mx-auto">
-      </div>
-    </div>
-
-
-
-    <!-- Seção RFID -->
-    <div *ngIf="activeTab === 'rfid'" class="mt-6 text-left bg-[#2E2A83] p-6 flex flex-col md:flex-row">
-      <!-- Div esquerda com textos -->
-      <div class="w-full md:w-7/10 pr-6 mb-6 md:mb-0">
-        <div>
-          <h2 class="bg-white text-[#3e4095] px-4 py-2 inline-block font-bold text-lg w-full"> RFID</h2>
-          <p class="mt-4">
-            {{ 'HOME.IMPLANTACAO_RFID' | translate }}
-          </p>
-        </div>
-        <div>
-          <h2 class="bg-white text-[#3e4095] px-4 py-2 inline-block font-bold text-lg w-full"> TAGs</h2>
-          <p class="mt-4">
-            {{ 'HOME.FABRICACAO_TAGS_RFID' | translate }}
-          </p>
-        </div>
-      </div>
-
-      <!-- Div direita com imagem centralizada -->
-      <div class="w-full md:w-3/10 flex justify-center items-center">
-        <img src="/images/img_softwares_rfid.png" alt="RFID" class="w-64 mx-auto">
-      </div>
-    </div>
-
-
-
-
-
-  </div>
-</div>
-
-<div class="mt-6 text-center">
-  <a href="/solucoes">
-    <button class="bg-[#2E2A83] text-white font-bold py-2 px-6 rounded-md shadow hover:bg-[#23206A] transition">
-      {{ 'HOME.SAIBA_MAIS' | translate }}
-    </button>
-  </a>
-</div>
-
-<div class="max-w-6xl mx-auto p-8">
+<div class="max-w-6xl mx-auto p-8 mt-16">
   <!-- Header Section -->
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -217,33 +19,29 @@
           SOBRE NÓS
         </h2>
         <p class="text-gray-700">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lorem nisi, tincidunt id sagittis vel, viverra sed arcu. Mauris faucibus leo nec sem rhoncus, quis porttitor lectus sagittis. 
+          Tudo começou quando eu, Tânia Luzia Gonçalves, e minha irmã, Mara Eliane Gonçalves Fernandes, iniciamos uma sociedade em uma loja de artigos de festa, a "É Big!".
         </p>
 
         <p class="text-gray-700 mt-4">
-          Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-          Duis malesuada pulvinar est, volutpat pulvinar sapien convallis in.
-          Fusce euismod, risus ultrices aliquet faucibus, augue eros posuere tellus, quis tristique lorem nisi sed enim. Curabitur convallis purus nec neque hendrerit mattis. 
-          Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+          Mesmo sem experiência, com a ajuda dos nossos filhos jovens, ingressamos no meio digital. 
+          Por meio das redes sociais, desenvolvemos um novo formato de trabalho que agiliza nossos processos.
+          Hoje, estamos estabelecidos em Paraguaçu - MG e prontos para atender você a qualquer momento,
+          oferecendo diversos artigos e serviços para satisfazê-lo na organização e no aproveitamento de sua festa.
         </p>
 
       </div>
     </div>
 
-
-
-
-
     <!-- Map Section -->
     <div class=" rounded-lg p-4">
       <div class="h-64 relative">
-        <img src="/images/img_solucoes_mapa.png" alt="Map location" class="w-full h-full object-cover rounded" />
+        <img src="/images/img_inicio_mapazoom.png" alt="Map location" class="w-full h-full object-cover rounded" />
 
       </div>
     </div>
   </div>
 
-
+  <!-- Missão / Visão / Valores -->
   <section class="py-8 bg-white">
     <div class="container mx-auto px-4">
 
@@ -251,32 +49,32 @@
         <!-- Missão -->
         <div
           class="p-8 flex flex-col items-center text-center bg-gray-50 rounded-lg shadow-lg border border-indigo-200">
-          <h3 class="text-[#3D3F94] text-xl font-bold mb-4">{{ 'HOME.MISSAO' | translate }}</h3>
+          <h3 class="text-[#3D3F94] text-xl font-bold mb-4">Missão</h3>
           <p class="text-gray-700">
-            {{ 'HOME.MISSAO_DESCRICAO' | translate }}
-
+            Oferecer produtos criativos, acessíveis e de qualidade para transformar celebrações em memórias únicas, com atendimento humanizado e inovação digital. 
           </p>
         </div>
 
         <!-- Visão -->
         <div
           class="p-8 flex flex-col items-center text-center bg-gray-50 rounded-lg shadow-lg border border-indigo-200">
-          <h3 class="text-[#3D3F94] text-xl font-bold mb-4">{{ 'HOME.VISAO' | translate }}</h3>
+          <h3 class="text-[#3D3F94] text-xl font-bold mb-4">Visão</h3>
           <p class="text-gray-700">
-            {{ 'HOME.REFERENCIA_GERENCIAMENTO' | translate }}
-
+            Ser a loja de artigos de festa que lidera em inovação e criatividade no sul de Minas Gerais, 
+            reconhecida pela excelência e itens personalizados que inspiram celebrações únicas. 
           </p>
         </div>
 
         <!-- Valores -->
         <div
           class="p-8 flex flex-col items-center text-center bg-gray-50 rounded-lg shadow-lg border border-indigo-200">
-          <h3 class="text-[#3D3F94] text-xl font-bold mb-4">{{ 'HOME.VALORES' | translate }}</h3>
+          <h3 class="text-[#3D3F94] text-xl font-bold mb-4">Valores</h3>
           <div class="text-gray-700 space-y-4">
-            <span>{{ 'HOME.RESPEITO_CLIENTES' | translate }}</span><br>
-            <span>{{ 'HOME.VALORIZACAO_COLABORADORES' | translate }}</span><br>
-            <span>{{ 'HOME.ETICA_TRANSPARENCIA' | translate }}</span><br>
-            <span>{{ 'HOME.CONFIABILIDADE_PROCESSOS' | translate }}</span><br>
+            <span>Família em Primeiro Lugar;</span><br>
+            <span>Criatividade que Transforma;</span><br>
+            <span>Atendimento com Alma;</span><br>
+            <span>Acessibilidade com Dignidade;</span><br>
+            <span>Crescimento com Autonomia.</span><br>
           </div>
         </div>
       </div>
@@ -285,192 +83,5 @@
 
 
 </div>
-
-
-
-<div class="p-8">
-  <h2 class="bg-[#3D3F94] text-white text-2xl font-bold mb-8 text-center p-4 rounded-lg w-full max-w-4xl mx-auto">
-    {{ 'HOME.CLIENTES_PARCEIROS' | translate }}
-  </h2>
-
-
-  <!-- Carrossel de Clientes -->
-  <div class="relative">
-    <!-- Carrossel de Clientes -->
-    <div class="relative">
-      <div class="overflow-hidden">
-        <div class="flex space-x-6 transition-all duration-500 ease-in-out transform">
-          <div *ngFor="let cliente of clientes" class="flex-none">
-            <div class="transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
-              <img [src]="cliente.image" alt="Cliente" class="w-64 h-64 object-contain mx-auto">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- Indicadores (bolinhas) -->
-    <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex space-x-2 pb-4">
-      <button *ngFor="let idx of indicatorIndexes" [class.bg-[#3D3F94]]="idx === currentIndex"
-        class="w-3 h-3 rounded-full" (click)="goToSlide(idx)">
-      </button>
-    </div>
-
-    <!-- Controles do carrossel -->
-    <div
-      class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-black text-white p-2 cursor-pointer rounded-full shadow-lg"
-      (click)="prevSlide()">
-      &#10094;
-    </div>
-    <div
-      class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-black text-white p-2 cursor-pointer rounded-full shadow-lg"
-      (click)="nextSlide()">
-      &#10095;
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="bg-[#3D3F94] h-full flex justify-center items-start px-4">
-  <div class=" w-full max-w-4xl p-8">
-    <h1 class="text-white text-2xl font-semibold text-center mb-8">
-      {{ 'HOME.ENTRE_EM_CONTATO' | translate }}
-    </h1>
-    <form [formGroup]="form" (ngSubmit)="onSubmit($event)" class="space-y-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div>
-          <input type="text" formControlName="name" [placeholder]="'HOME.DIGITE_SEU_NOME' | translate"
-            [attr.aria-label]="'HOME.DIGITE_SEU_NOME' | translate"
-            class="w-full bg-transparent border-b border-white text-white placeholder-white/70 pb-2 focus:outline-none focus:border-white/90">
-          <div *ngIf="form.get('name')?.touched && form.get('name')?.invalid" class="text-red-500 text-sm">
-            <div *ngIf="form.get('name')?.hasError('required')">
-              {{ 'HOME.NOME_OBRIGATORIO' | translate }}
-            </div>
-          </div>
-        </div>
-        <div>
-          <input type="email" formControlName="email" [placeholder]="'HOME.DIGITE_SEU_EMAIL' | translate"
-            [attr.aria-label]="'HOME.DIGITE_SEU_EMAIL' | translate"
-            class="w-full bg-transparent border-b border-white text-white placeholder-white/70 pb-2 focus:outline-none focus:border-white/90">
-          <div *ngIf="form.get('email')?.touched && form.get('email')?.invalid" class="text-red-500 text-sm">
-            <div *ngIf="form.get('email')?.hasError('required')">
-              {{ 'HOME.EMAIL_OBRIGATORIO' | translate }}
-            </div>
-            <div *ngIf="form.get('email')?.hasError('email')">
-              {{ 'HOME.EMAIL_INVALIDO' | translate }}
-            </div>
-          </div>
-        </div>
-        <div>
-          <input type="tel" formControlName="phone" [placeholder]="'HOME.DIGITE_SEU_TELEFONE' | translate"
-            [attr.aria-label]="'HOME.DIGITE_SEU_TELEFONE' | translate"
-            class="w-full bg-transparent border-b border-white text-white placeholder-white/70 pb-2 focus:outline-none focus:border-white/90">
-          <div *ngIf="form.get('phone')?.touched && form.get('phone')?.invalid" class="text-red-500 text-sm">
-            <div *ngIf="form.get('phone')?.hasError('required')">
-              {{ 'HOME.TELEFONE_OBRIGATORIO' | translate }}
-            </div>
-          </div>
-        </div>
-        <div>
-          <select formControlName="sector"
-            class="w-full bg-transparent border-b border-white text-white placeholder-white/70 pb-2 focus:outline-none focus:border-white/90"
-            [attr.aria-label]="'HOME.SELECIONE_OPCAO' | translate">
-            <option value="" disabled selected class="text-gray-900">
-              {{ 'HOME.SELECIONE_OPCAO' | translate }}
-            </option>
-            <option value="comercial" class="text-gray-900">
-              {{ 'HOME.COMERCIAL' | translate }}
-            </option>
-            <option value="suporte" class="text-gray-900">
-              {{ 'HOME.SUPORTE' | translate }}
-            </option>
-            <option value="financeiro" class="text-gray-900">
-              {{ 'HOME.FINANCEIRO' | translate }}
-            </option>
-          </select>
-          <div *ngIf="form.get('sector')?.touched && form.get('sector')?.invalid" class="text-red-500 text-sm">
-            <div *ngIf="form.get('sector')?.hasError('required')">
-              {{ 'HOME.SELECAO_OBRIGATORIA' | translate }}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <textarea formControlName="message" [placeholder]="'HOME.DIGITE_SUA_MENSAGEM' | translate" rows="4"
-          [attr.aria-label]="'HOME.DIGITE_SUA_MENSAGEM' | translate"
-          class="w-full bg-transparent border border-white text-white placeholder-white/70 p-2 focus:outline-none focus:border-white/90 resize-none rounded"></textarea>
-        <div *ngIf="form.get('message')?.touched && form.get('message')?.invalid" class="text-red-500 text-sm">
-          <div *ngIf="form.get('message')?.hasError('required')">
-            {{ 'HOME.MENSAGEM_OBRIGATORIA' | translate }}
-          </div>
-        </div>
-      </div>
-
-      <div class="flex items-center space-x-2">
-        <input type="checkbox" formControlName="privacyPolicy" class="h-4 w-4 rounded border-white"
-          [attr.aria-label]="'HOME.ACEITO_POLITICA_PRIVACIDADE' | translate">
-        <label class="text-white">
-          {{ 'HOME.CONCORDO_COM_AS' | translate }} <a href="/politica-privacidade" class="underline">{{
-            'HOME.POLITICAS_PRIVACIDADE' | translate }}</a>.
-        </label>
-        <div *ngIf="form.get('privacyPolicy')?.invalid" class="text-red-500 text-sm">
-          <div *ngIf="form.get('privacyPolicy')?.hasError('requiredTrue')">
-            {{ 'HOME.ACEITE_POLITICA_OBRIGATORIO' | translate }}
-          </div>
-        </div>
-      </div>
-
-      <!-- Somente uma instância do CAPTCHA aqui -->
-      <div class="inline-block p-4 rounded bg-transparent">
-        <div class="recaptcha-placeholder flex justify-center items-center">
-          <app-turnstile (tokenEmitted)="onTokenReceived($event)"></app-turnstile>
-        </div>
-      </div>
-
-      <div *ngIf="formStatus == 'sucesso'"
-        class="text-white font-bold text-center text-2xl bg-green-500 py-2 rounded-md shadow-lg">
-        <p>Formulário enviado com sucesso. Agradecemos seu envio!</p>
-      </div>
-
-      <div *ngIf="formStatus == 'erro'"
-        class="text-white font-bold text-center text-2xl bg-red-500 py-2 rounded-md shadow-lg">
-        <p>Ocorreu um erro ao enviar o formulário. Por favor, tente novamente mais tarde.</p>
-      </div>
-
-
-      <div class="flex justify-center">
-        <button type="submit" [disabled]="form.invalid"
-          class="px-12 py-2 border border-white text-white hover:bg-white hover:text-[#3f3d8c] transition-colors">
-          {{ 'HOME.ENVIAR' | translate }}
-        </button>
-      </div>
-    </form>
-
-
-
-
-
-
-
-  </div>
-</div>
-
-
 
 <app-footer></app-footer>
