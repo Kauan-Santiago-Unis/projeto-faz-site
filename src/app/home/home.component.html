@@ -1,5 +1,32 @@
 <app-navbar class="fixed top-0 left-0 w-full z-50"></app-navbar>
 
+<div class="relative w-full h-auto sm:h-[500px] overflow-hidden" style="margin-top: 50px;">
+  <!-- Imagens do Slider -->
+  <div class="flex transition-transform duration-1000 ease-in-out"
+    [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+    <div *ngFor="let slide of slides" class="w-full flex-shrink-0 relative">
+      <img [src]="slide.image" class="w-full h-auto sm:h-[500px] object-cover" alt="Slide Image">
+
+      <!-- Texto e Botões Centralizados -->
+      <div class="absolute inset-0 flex flex-col items-center justify-center text-white bg-black bg-opacity-50 px-2">
+        <div class="text-center max-w-[90%]">
+          <h1 class="text-2xl sm:text-4xl font-bold mb-2 sm:mb-4">{{ slide.title }}</h1>
+          <p class="text-base sm:text-lg mb-4 sm:mb-6">{{ slide.description }}</p>
+          <div class="space-x-2 sm:space-x-4">
+            <!-- Botão com nome e link dinâmicos -->
+            <!-- <a [href]="slide.buttonLink">
+              <button class="bg-gray-700 hover:bg-gray-900 text-white font-bold py-2 px-3 sm:px-4 rounded">
+                {{ slide.buttonName }}
+              </button>
+            </a> -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <div class="max-w-6xl mx-auto p-8 mt-16">
   <!-- Header Section -->
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">

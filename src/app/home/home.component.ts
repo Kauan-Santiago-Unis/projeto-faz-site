@@ -89,43 +89,29 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   private loadSlides(): void {
-    this.translate.get([
-      'HOME.ESPECIALISTAS_NO_SETOR_CAFEEIRO',
-      'HOME.SOLUCOES_DE_GESTAO_COMPLETAS',
-      'HOME.SOBRE_NOS',
-      'HOME.DESTAQUE_NO_GERENCIAMENTO_DE_ARMAZENS',
-      'HOME.SISTEMA_COMPLETO_GERENCIAMENTO_ARMAZEN',
-      'HOME.SOLUCOES_WMS',
-      'HOME.CONECTADOS_COM_CAFE',
-      'HOME.CRIAR_O_FUTURO',
-      'HOME.NOSSAS_SOLUCOES'
-    ]).pipe(
-      map((translations) => {
-        this.slides = [
-          {
-            image: '/images/img_inicio_especialistassetorcafeeiro.jpg',
-            title: translations['HOME.ESPECIALISTAS_NO_SETOR_CAFEEIRO'],
-            description: translations['HOME.SOLUCOES_DE_GESTAO_COMPLETAS'],
-            buttonName: translations['HOME.SOBRE_NOS'],
-            buttonLink: '/sobre'
-          },
-          {
-            image: 'images/img_inicio_especialistas-scaled.jpg',
-            title: translations['HOME.DESTAQUE_NO_GERENCIAMENTO_DE_ARMAZENS'],
-            description: translations['HOME.SISTEMA_COMPLETO_GERENCIAMENTO_ARMAZEN'],
-            buttonName: translations['HOME.SOLUCOES_WMS'],
-            buttonLink: '/solucoes/wms'
-          },
-          {
-            image: '/images/img_inicio_conectados_sincronizados.jpg',
-            title: translations['HOME.CONECTADOS_COM_CAFE'],
-            description: translations['HOME.CRIAR_O_FUTURO'],
-            buttonName: translations['HOME.NOSSAS_SOLUCOES'],
-            buttonLink: '/solucoes'
-          }
-        ];
-      })
-    ).subscribe();
+    this.slides = [
+      {
+        image: '/images/slider/baloes.png',
+        title: 'BALÕES',
+        description: '',
+        buttonName: 'CONFERIR',
+        buttonLink: '/sobre'
+      },
+      {
+        image: '/images/slider/descartaveis.png',
+        title: 'DESCARTÁVEIS',
+        description: '',
+        buttonName: 'Botao 2',
+        buttonLink: '/solucoes/wms'
+      },
+      {
+        image: '/images/slider/chocolates.png',
+        title: 'Chocolates',
+        description: '',
+        buttonName: 'Botao 3',
+        buttonLink: '/solucoes'
+      }
+    ];
   }
 
   // Funções para controle de abas
