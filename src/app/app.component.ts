@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ChatwootService } from './chatwoot.service';
 import { ConsentPopupComponent } from './components/consent-popup/consent-popup.component';
 
 @Component({
@@ -11,12 +10,11 @@ import { ConsentPopupComponent } from './components/consent-popup/consent-popup.
 })
 export class AppComponent {
 
-  constructor(private chatwootService: ChatwootService) { }
+  constructor() { }
 
-  title = 'brasilsync';
+  title = 'projetoFazSite';
 
 
   ngOnInit(): void {
-    this.chatwootService.loadChatScript();
   }
 }

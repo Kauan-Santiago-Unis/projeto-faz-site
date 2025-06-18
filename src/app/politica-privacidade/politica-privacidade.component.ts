@@ -14,7 +14,7 @@ export class PoliticaPrivacidadeComponent {
   constructor(private titleService: Title) { }
 
   ngOnInit() {
-    this.titleService.setTitle('Brasilsync - Política de Privacidade');
+    this.titleService.setTitle('É Big - Política de Privacidade');
   }
 
 }
